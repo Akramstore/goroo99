@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Streaming Video</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: #0d0d0d;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      background: #111;
+      padding: 15px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 15px;
+      background: black;
+    }
+
+    .btn-list button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      background: #e50914;
+      color: white;
+      cursor: pointer;
+    }
+
+    .btn-list button:hover {
+      opacity: 0.8;
+    }
+
+    .ad-box {
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>🎬 Nonton Video Online</header>
+
+<div class="container">
+
+  <!-- IKLAN ATAS -->
+  <div class="ad-box">
+    <!-- PASTE KODE IKLAN HILLTOPADS BANNER DI SINI -->
+  </div>
+
+  <!-- Tombol daftar video -->
+  <h2>Pilih Video</h2>
+  <div class="btn-list">
+    <button onclick="loadVideo('https://domainkamu.com/video1.mp4')">Video 1</button>
+    <button onclick="loadVideo('https://domainkamu.com/video2.mp4')">Video 2</button>
+    <button onclick="loadVideo('https://domainkamu.com/video3.mp4')">Video 3</button>
+  </div>
+
+  <!-- Player -->
+  <video id="player" controls controlsList="nodownload">
+    <source src="" type="video/mp4">
+    Browser tidak mendukung video.
+  </video>
+
+  <!-- IKLAN BAWAH -->
+  <div class="ad-box">
+    <!-- PASTE KODE IKLAN HILLTOPADS LAIN DI SINI -->
+  </div>
+
+</div>
+
+<script>
+  function loadVideo(link) {
+    let player = document.getElementById("player");
+    player.src = link;
+    player.play();
+  }
+</script>
+
+</body>
+    </html>
