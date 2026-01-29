@@ -1,97 +1,144 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Streaming Video</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goroo99 Streaming</title>
 
-  <style>
-    body {
-      margin: 0;
-      background: #0d0d0d;
-      font-family: Arial, sans-serif;
-      color: white;
-      text-align: center;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #141414;
+  color: white;
+}
 
-    header {
-      background: #111;
-      padding: 15px;
-      font-size: 22px;
-      font-weight: bold;
-    }
+header {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+  padding: 20px 40px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
+header h1 {
+  color: #e50914;
+  margin: 0;
+}
 
-    video {
-      width: 100%;
-      border-radius: 10px;
-      margin-top: 15px;
-      background: black;
-    }
+.hero {
+  height: 70vh;
+  background: url('https://i.imgur.com/8Km9tLL.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 60px;
+}
 
-    .btn-list button {
-      margin: 5px;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 6px;
-      background: #e50914;
-      color: white;
-      cursor: pointer;
-    }
+.hero-content {
+  max-width: 500px;
+}
 
-    .btn-list button:hover {
-      opacity: 0.8;
-    }
+.hero h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
 
-    .ad-box {
-      margin: 20px 0;
-    }
-  </style>
+.hero button {
+  padding: 10px 20px;
+  background: #e50914;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.section {
+  padding: 20px 40px;
+}
+
+.row {
+  display: flex;
+  overflow-x: auto;
+}
+
+.card {
+  min-width: 150px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+video {
+  width: 90%;
+  max-width: 900px;
+  display: none;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+</style>
 </head>
+
 <body>
 
-<header>🎬 Nonton Video Online</header>
+<header>
+  <h1>GOROO99</h1>
+</header>
 
-<div class="container">
-
-  <!-- IKLAN ATAS -->
-  <div class="ad-box">
-    <!-- PASTE KODE IKLAN HILLTOPADS BANNER DI SINI -->
+<div class="hero">
+  <div class="hero-content">
+    <h2>Film Unggulan</h2>
+    <p>Nonton streaming kualitas HD gratis.</p>
+    <button onclick="playVideo('https://domainkamu.com/video1.mp4')">▶ Play</button>
   </div>
+</div>
 
-  <!-- Tombol daftar video -->
-  <h2>Pilih Video</h2>
-  <div class="btn-list">
-    <button onclick="loadVideo('https://domainkamu.com/video1.mp4')">Video 1</button>
-    <button onclick="loadVideo('https://domainkamu.com/video2.mp4')">Video 2</button>
-    <button onclick="loadVideo('https://domainkamu.com/video3.mp4')">Video 3</button>
+<!-- IKLAN ATAS -->
+<div style="text-align:center; margin:20px;">
+  <!-- SCRIPT IKLAN HILLTOPADS -->
+</div>
+
+<div class="section">
+  <h2>Trending</h2>
+  <div class="row">
+    <div class="card" onclick="playVideo('https://domainkamu.com/video1.mp4')">
+      <img src="https://i.imgur.com/5KCVkau.jpg">
+    </div>
+    <div class="card" onclick="playVideo('https://domainkamu.com/video2.mp4')">
+      <img src="https://i.imgur.com/jS5yYQp.jpg">
+    </div>
+    <div class="card" onclick="playVideo('https://domainkamu.com/video3.mp4')">
+      <img src="https://i.imgur.com/2TeJf7F.jpg">
+    </div>
   </div>
+</div>
 
-  <!-- Player -->
-  <video id="player" controls controlsList="nodownload">
-    <source src="" type="video/mp4">
-    Browser tidak mendukung video.
-  </video>
+<!-- VIDEO PLAYER -->
+<video id="player" controls></video>
 
-  <!-- IKLAN BAWAH -->
-  <div class="ad-box">
-    <!-- PASTE KODE IKLAN HILLTOPADS LAIN DI SINI -->
-  </div>
-
+<!-- IKLAN BAWAH -->
+<div style="text-align:center; margin:20px;">
+  <!-- SCRIPT IKLAN HILLTOPADS -->
 </div>
 
 <script>
-  function loadVideo(link) {
-    let player = document.getElementById("player");
-    player.src = link;
-    player.play();
-  }
+function playVideo(link) {
+  let player = document.getElementById("player");
+  player.src = link;
+  player.style.display = "block";
+  player.scrollIntoView({ behavior: "smooth" });
+  player.play();
+}
 </script>
 
 </body>
-    </html>
+</html>
