@@ -1,96 +1,137 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Streaming Video</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GOROO99 Streaming</title>
 
-  <style>
-    body {
-      margin: 0;
-      background: #0d0d0d;
-      font-family: Arial, sans-serif;
-      color: white;
-      text-align: center;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #141414;
+  color: white;
+  text-align: center;
+}
 
-    header {
-      background: #111;
-      padding: 15px;
-      font-size: 22px;
-      font-weight: bold;
-    }
+header {
+  padding: 18px;
+  background: #000;
+  color: #e50914;
+  font-size: 24px;
+  font-weight: bold;
+}
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
+.container {
+  max-width: 850px;
+  margin: auto;
+  padding: 20px;
+}
 
-    video {
-      width: 100%;
-      border-radius: 10px;
-      margin-top: 15px;
-      background: black;
-    }
+.notice {
+  background: #222;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #ccc;
+}
 
-    .btn-list button {
-      margin: 5px;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 6px;
-      background: #e50914;
-      color: white;
-      cursor: pointer;
-    }
+.server-box button {
+  width: 100%;
+  padding: 14px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 6px;
+  background: #e50914;
+  color: white;
+  font-size: 16px;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transition: 0.3s;
+}
 
-    .btn-list button:hover {
-      opacity: 0.8;
-    }
+.server-box button.active {
+  cursor: pointer;
+  opacity: 1;
+}
 
-    .ad-box {
-      margin: 20px 0;
-    }
-  </style>
+.server-box button:hover.active {
+  transform: scale(1.02);
+}
+
+video {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+  display: none;
+  background: black;
+}
+</style>
 </head>
+
 <body>
 
-<header>🎬 Nonton Video Online</header>
+<header>GOROO99</header>
 
 <div class="container">
 
+  <h2>🎬 Judul Film</h2>
+
+  <div class="notice">
+    Tombol server akan aktif dalam <span id="countdown">10</span> detik...
+  </div>
+
   <!-- IKLAN ATAS -->
-  <div class="ad-box">
-    <!-- PASTE KODE IKLAN HILLTOPADS BANNER DI SINI -->
+  <div style="margin:20px 0;">
+    <!-- SCRIPT IKLAN HILLTOPADS -->
   </div>
 
-  <!-- Tombol daftar video -->
-  <h2>Pilih Video</h2>
-  <div class="btn-list">
-    <button onclick="loadVideo('https://jumpshare.com/share/bEixVAz5oJCMcLztFpGC+')">Video 1</button>
-    <button onclick="loadVideo('https://domainkamu.com/video2.mp4')">Video 2</button>
-    <button onclick="loadVideo('https://domainkamu.com/video3.mp4')">Video 3</button>
+  <div class="server-box">
+    <button id="s1" onclick="playVideo('https://linkvideo1.mp4')">▶ Server 1</button>
+    <button id="s2" onclick="playVideo('https://linkvideo2.mp4')">▶ Server 2</button>
+    <button id="s3" onclick="playVideo('https://linkvideo3.mp4')">▶ Server 3</button>
   </div>
 
-  <!-- Player -->
-  <video id="player" controls controlsList="nodownload">
-    <source src="" type="video/mp4">
-    Browser tidak mendukung video.
-  </video>
+  <video id="player" controls controlsList="nodownload"></video>
 
   <!-- IKLAN BAWAH -->
-  <div class="ad-box">
-    <!-- PASTE KODE IKLAN HILLTOPADS LAIN DI SINI -->
+  <div style="margin:20px 0;">
+    <!-- SCRIPT IKLAN HILLTOPADS -->
   </div>
 
 </div>
 
 <script>
-  function loadVideo(link) {
-    let player = document.getElementById("player");
-    player.src = link;
-    player.play();
+let timeLeft = 10;
+let countdownEl = document.getElementById("countdown");
+let buttons = document.querySelectorAll(".server-box button");
+
+let timer = setInterval(() => {
+  timeLeft--;
+  countdownEl.textContent = timeLeft;
+
+  if (timeLeft <= 0) {
+    clearInterval(timer);
+    countdownEl.textContent = "0";
+    document.querySelector(".notice").textContent = "Pilih server untuk menonton";
+    buttons.forEach(btn => {
+      btn.classList.add("active");
+      btn.disabled = false;
+      btn.style.cursor = "pointer";
+    });
   }
+}, 1000);
+
+function playVideo(link) {
+  let player = document.getElementById("player");
+  player.src = link;
+  player.style.display = "block";
+  player.scrollIntoView({ behavior: "smooth" });
+  player.play();
+
+  // DI SINI biasanya pop ads otomatis muncul (jika script pop dipasang)
+}
 </script>
 
 </body>
