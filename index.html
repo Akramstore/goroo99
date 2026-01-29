@@ -1,122 +1,99 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GOROO99 Streaming</title>
-
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #141414;
-  color: white;
-  text-align: center;
-}
-
-header {
-  padding: 18px;
-  background: black;
-  color: #e50914;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-}
-
-.notice {
-  background: #222;
-  padding: 10px;
-  border-radius: 6px;
-  margin-bottom: 15px;
-  color: #ccc;
-}
-
-.server-box button {
-  width: 100%;
-  padding: 14px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 6px;
-  background: #e50914;
-  color: white;
-  font-size: 16px;
-  cursor: not-allowed;
-  opacity: 0.6;
-  transition: 0.3s;
-}
-
-.server-box button.active {
-  cursor: pointer;
-  opacity: 1;
-}
-
-.server-box button:hover.active {
-  transform: scale(1.02);
-}
-</style>
+    <meta charset="UTF-8">
+    <title>Goroo99 Streaming</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Platform streaming video hiburan untuk pengguna dewasa 18+">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+        }
+        header {
+            background: #000;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav {
+            text-align: center;
+            padding: 10px;
+            background: #1c1c1c;
+        }
+        nav a {
+            color: #ff3c3c;
+            margin: 10px;
+            text-decoration: none;
+        }
+        .container {
+            padding: 15px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 10px;
+        }
+        .card {
+            background: #1e1e1e;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .card img {
+            width: 100%;
+            border-radius: 6px;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #000;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
 </head>
-
 <body>
 
-<header>VIDIO🔞</header>
+<header>Goroo99 Streaming</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Categories</a>
+    <a href="#">Popular</a>
+    <a href="#">DMCA</a>
+    <a href="#">Privacy</a>
+</nav>
 
 <div class="container">
+    <h2>Video Hiburan Dewasa</h2>
+    <p>Platform streaming video hiburan khusus pengguna usia 18+. Semua konten hanya untuk penonton dewasa.</p>
 
-  <h2>🎬 FILM DEWASA</h2>
-
-  <div class="notice">
-    Link aktif dalam <span id="countdown">3</span> detik...
-  </div>
-
-  <!-- IKLAN ATAS -->
-  <div style="margin:20px 0;">
-    <!-- SCRIPT IKLAN HILLTOPADS DI SINI -->
-  </div>
-
-  <div class="server-box">
-    <button id="s1" onclick="goLink('https://videy.co/v/?id=grKuIY5u1')">▶ Server 1</button>
-    <button id="s2" onclick="goLink('https://linkvideo2.com')">▶ Server 2</button>
-    <button id="s3" onclick="goLink('https://linkvideo3.com')">▶ Server 3</button>
-  </div>
-
-  <!-- IKLAN BAWAH -->
-  <div style="margin:20px 0;">
-    <!-- SCRIPT IKLAN HILLTOPADS DI SINI -->
-  </div>
-
+    <div class="grid">
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="">
+            <p>Video Populer #1</p>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="">
+            <p>Video Populer #2</p>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="">
+            <p>Video Populer #3</p>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="">
+            <p>Video Populer #4</p>
+        </div>
+    </div>
 </div>
 
-<script>
-let timeLeft = 8;
-let countdownEl = document.getElementById("countdown");
-let buttons = document.querySelectorAll(".server-box button");
-
-buttons.forEach(btn => btn.disabled = true);
-
-let timer = setInterval(() => {
-  timeLeft--;
-  countdownEl.textContent = timeLeft;
-
-  if (timeLeft <= 0) {
-    clearInterval(timer);
-    document.querySelector(".notice").textContent = "Pilih server untuk menonton";
-    buttons.forEach(btn => {
-      btn.classList.add("active");
-      btn.disabled = false;
-    });
-  }
-}, 1000);
-
-function goLink(url) {
-  // Saat klik server → pop ads biasanya muncul otomatis jika script pop dipasang
-  window.open(url, "_blank");
-}
-</script>
+<footer>
+    18+ Only | All models are 18+ | Goroo99 Streaming © 2026
+</footer>
 
 </body>
 </html>
