@@ -16,14 +16,14 @@ body {
 
 header {
   padding: 18px;
-  background: #000;
+  background: black;
   color: #e50914;
   font-size: 24px;
   font-weight: bold;
 }
 
 .container {
-  max-width: 850px;
+  max-width: 800px;
   margin: auto;
   padding: 20px;
 }
@@ -33,14 +33,13 @@ header {
   padding: 10px;
   border-radius: 6px;
   margin-bottom: 15px;
-  font-size: 14px;
   color: #ccc;
 }
 
 .server-box button {
   width: 100%;
   padding: 14px;
-  margin: 8px 0;
+  margin: 10px 0;
   border: none;
   border-radius: 6px;
   background: #e50914;
@@ -59,14 +58,6 @@ header {
 .server-box button:hover.active {
   transform: scale(1.02);
 }
-
-video {
-  width: 100%;
-  margin-top: 20px;
-  border-radius: 10px;
-  display: none;
-  background: black;
-}
 </style>
 </head>
 
@@ -79,33 +70,33 @@ video {
   <h2>🎬 Judul Film</h2>
 
   <div class="notice">
-    Tombol server akan aktif dalam <span id="countdown">10</span> detik...
+    Link aktif dalam <span id="countdown">8</span> detik...
   </div>
 
   <!-- IKLAN ATAS -->
   <div style="margin:20px 0;">
-    <!-- SCRIPT IKLAN HILLTOPADS -->
+    <!-- SCRIPT IKLAN HILLTOPADS DI SINI -->
   </div>
 
   <div class="server-box">
-    <button id="s1" onclick="playVideo('https://videy.co/v/?id=grKuIY5u1.mp4')">▶ Server 1</button>
-    <button id="s2" onclick="playVideo('https://linkvideo2.mp4')">▶ Server 2</button>
-    <button id="s3" onclick="playVideo('https://linkvideo3.mp4')">▶ Server 3</button>
+    <button id="s1" onclick="goLink('https://videy.co/v/?id=grKuIY5u1')">▶ Server 1</button>
+    <button id="s2" onclick="goLink('https://linkvideo2.com')">▶ Server 2</button>
+    <button id="s3" onclick="goLink('https://linkvideo3.com')">▶ Server 3</button>
   </div>
-
-  <video id="player" controls controlsList="nodownload"></video>
 
   <!-- IKLAN BAWAH -->
   <div style="margin:20px 0;">
-    <!-- SCRIPT IKLAN HILLTOPADS -->
+    <!-- SCRIPT IKLAN HILLTOPADS DI SINI -->
   </div>
 
 </div>
 
 <script>
-let timeLeft = 10;
+let timeLeft = 8;
 let countdownEl = document.getElementById("countdown");
 let buttons = document.querySelectorAll(".server-box button");
+
+buttons.forEach(btn => btn.disabled = true);
 
 let timer = setInterval(() => {
   timeLeft--;
@@ -113,24 +104,17 @@ let timer = setInterval(() => {
 
   if (timeLeft <= 0) {
     clearInterval(timer);
-    countdownEl.textContent = "0";
     document.querySelector(".notice").textContent = "Pilih server untuk menonton";
     buttons.forEach(btn => {
       btn.classList.add("active");
       btn.disabled = false;
-      btn.style.cursor = "pointer";
     });
   }
 }, 1000);
 
-function playVideo(link) {
-  let player = document.getElementById("player");
-  player.src = link;
-  player.style.display = "block";
-  player.scrollIntoView({ behavior: "smooth" });
-  player.play();
-
-  // DI SINI biasanya pop ads otomatis muncul (jika script pop dipasang)
+function goLink(url) {
+  // Saat klik server → pop ads biasanya muncul otomatis jika script pop dipasang
+  window.open(url, "_blank");
 }
 </script>
 
