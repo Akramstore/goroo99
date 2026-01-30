@@ -153,22 +153,7 @@ footer{text-align:center;padding:30px;background:black;margin-top:40px;opacity:.
 
 <script>
 // OPEN VIDEO + COUNT CLICKS
-function openVideo(videoLink, el){
 
-    let counter = el.querySelector('.counter');
-    let count = parseInt(counter.innerText) + 1;
-    counter.innerText = count + " views";
-
-    if(!localStorage.getItem("adShown")){
-        localStorage.setItem("adShown", "yes");
-        window.open("https://LINK-IKLAN-KAMU", "_blank");
-        setTimeout(function(){
-            window.open(videoLink, "_blank");
-        }, 4000);
-    } else {
-        window.open(videoLink, "_blank");
-    }
-    }
 }
 
 // AUTO REDIRECT ONCE
